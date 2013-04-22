@@ -1,0 +1,135 @@
+<!-- @author Beto luna. 4/15/13
+	@version 2
+	Coloring team Beto Luna, Jason Hintlian.
+	CS401 Spring 2013.
+	Using sketch.js,slides.min.jquery and farbtastic.js plugins. Please see
+	copyright notices in appropriate files -->
+	
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<title>Coloring Page</title>
+<!-- <meta name="viewport" content="user-scalable=no;"> --> 
+<link rel="stylesheet" href="css/forKiosk.css"> 
+<link rel="stylesheet" href="css/test.css"> <!-- in place of farbtastic.js in this version -->
+<script src="js/jquery-1.9.1.min.js"></script> 
+<script type="text/javascript" src="js/snc.js"></script> 
+<script src="js/sketch.js"></script>
+<script src="js/slides.min.jquery.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+<script src="js/farbtastic.js"></script>
+<script src="js/testscript.js"></script> <!-- try to integrate -->
+<!-- <script type="text/javascript">
+ 	$(document).ready(function() {
+    	$('#rueda').farbtastic('.demos');
+  	});
+</script> already in testscript.js -->
+</head>
+<body onload="init()"> <!-- loads touch-to-mouse translator function touchHandler(e) -->
+	<div class="colorpicker">
+		<div id="colorpicker1" style="border:0px solid red; width:400px;"></div>
+	</div>
+	<!-- <div class="colorwheel">  
+  		<div id="rueda" style="border:1px solid red; width:400px;"></div> 
+	</div>    Old, remove -->
+	<div id="colors_tools">
+		<div id="colors">
+			<table class="tabl"> <!-- start color buttons table -->
+				<tr>
+					<td><a id='wheelbutton' class='wheel'><img src='images/wheel1.png'></a></td>
+					<!-- <td><a href='#canvas' id="fromColorWheel" data-color="#dfdfdf"><button class="demos" value="#dfdfdf"></button></a></td> -->
+					<!-- New variable-color button -->
+					<td><a href='#canvas' id="fromColorWheel" data-color="#123456"><button id="color1" style='width:55px;'></button></a></td>
+				</tr>
+				<tr>
+					<td><a href='#canvas' class="colorbutton" style="background:#52cccc;" data-color="#52cccc"></a></td> 
+					<td><a href='#canvas' class="colorbutton" style="background:#efb29e;" data-color="#efb29e"></a></td>
+				</tr>
+				<tr>
+					<td><a href='#canvas' class="colorbutton" style="background:#3083d6;" data-color="#3083d6"></a></td>
+					<td><a href='#canvas' class="colorbutton" style="background:#f8ddd4;" data-color="#f8ddd4"></a></td>
+				</tr>
+				<tr>
+					<td><a href='#canvas' class="colorbutton" style="background:#29a6cf;" data-color="#29a6cf"></a></td>
+					<td><a href='#canvas' class="colorbutton" style="background:#bc8f8f;" data-color="#bc8f8f"></a></td>
+				</tr>
+				<tr>
+					<td><a href='#canvas' class="colorbutton" style="background:#ffcc00;" data-color="#ffcc00"></a></td>
+					<td><a href='#canvas' class="colorbutton" style="background:#deb887;" data-color="#deb887"></a></td>
+				</tr>
+				<tr>
+					<td><a href='#canvas' class="colorbutton" style="background:#e65c00;" data-color="#e65c00"></a></td>
+					<td><a href='#canvas' class="colorbutton" style="background:#ffa347;" data-color="#ffa347"></a></td>
+				</tr>
+				<tr>
+					<td><a href='#canvas' class="colorbutton" style="background:#993300;" data-color="#993300"></a></td>
+					<td><a href='#canvas' class="colorbutton" style="background:#b85c00;" data-color="#b85c00"></a></td>
+				</tr>
+			</table> <!-- end color buttons table -->
+			<!-- <button id='colorwheel' onclick='toggleFade()'>more colors</button> -->
+			<!-- <button class='wheel'>more colors</button> -->  
+		</div> 
+			<!-- <div id="wheel"></div>   -->
+			<div id="tools_sizes"> <!-- start tools_sizes table -->
+				<table class="t_s"> 
+					<tr>
+						<td><a href='#canvas' class="tool" data-tool="marker" onclick="document.getElementById('size3').click();"><img src="images/brush1.png" width="15" alt="small"></a></td>							
+						<td><a href='#canvas' class="tool" data-tool="eraser" onclick="document.getElementById('size3').click();"><img src="images/eraser.png" width="15" alt="small"></a></td>
+					</tr>
+					<tr>
+						<td><a href='#canvas' class="tool" data-tool="marker" onclick="document.getElementById('size6').click();"><img src="images/brush1.png" width="25" alt="medium"></a></td>							
+						<td><a href='#canvas' class="tool" data-tool="eraser" onclick="document.getElementById('size6').click();"><img src="images/eraser.png" width="25" alt="medium"></a></td>					
+					</tr>
+					<tr>
+						<td><a href='#canvas' class="tool" data-tool="marker" onclick="document.getElementById('size13').click();"><img src="images/brush1.png" width="38" alt="large"></a></td>							
+						<td><a href='#canvas' class="tool" data-tool="eraser" onclick="document.getElementById('size13').click();"><img src="images/eraser.png" width="38" alt="large"></a></td>
+					</tr>
+					<tr>
+						<td><a href='#canvas' class="tool" data-tool="marker" onclick="document.getElementById('size23').click();"><img src="images/brush1.png" width="55" alt="xlarge"></a></td>							
+						<td><a href='#canvas' class="tool" data-tool="eraser" onclick="document.getElementById('size23').click();"><img src="images/eraser.png" width="55" alt="xlarge"></a></td>
+					</tr>
+				</table> 
+				<!-- links to sizes -->
+				<a id="size3" href='#canvas' data-size="3"></a>
+				<a id="size6" href='#canvas' data-size="6"></a>
+				<a id="size13" href='#canvas' data-size="13"></a>
+				<a id="size23" href='#canvas' data-size="23"></a>
+			</div>  <!-- end tools_sizes table -->
+	</div> <!-- end colors_tools -->
+
+	<div id="working_area">
+		<div id="canv_area">		
+			<canvas id="canvas" width="735" height="718"></canvas>
+			<!-- <div id="wheel"></div> yet to be used -->
+			<div id="img_layer_area">	
+		  		<div id="container">
+					<div id="statues_example">
+						<div id="statues">
+							<div class="slides_container">
+								<a><img src="images/1b.png" width="725" alt="img 1"></a>
+								<a><img src="images/2b.png" width="725" alt="img 2"></a>
+								<a><img src="images/3b.png" width="725" alt="img 3"></a>
+								<a><img src="images/4b.png" width="725" alt="img 4"></a>
+								<a><img src="images/5b.png" width="725" alt="img 5"></a>
+								<a><img src="images/6b.png" width="725" alt="img 6"></a>
+								<a><img src="images/7b.png" width="725" alt="img 6"></a>
+							</div>	
+							<ul class="pagination">
+								<li><a href="#" onclick="document.getElementById('clear').click();"><img src="images/1tmb.png" width="55" alt="img 1"></a></li>
+								<li><a href="#" onclick="document.getElementById('clear').click();"><img src="images/2tmb.png" width="55" alt="img 2"></a></li>
+								<li><a href="#" onclick="document.getElementById('clear').click();"><img src="images/3tmb.png" width="55" alt="img 3"></a></li>
+								<li><a href="#" onclick="document.getElementById('clear').click();"><img src="images/4tmb.png" width="55" alt="img 4"></a></li>
+								<li><a href="#" onclick="document.getElementById('clear').click();"><img src="images/5tmb.png" width="55" alt="img 5"></a></li>
+								<li><a href="#" onclick="document.getElementById('clear').click();"><img src="images/6tmb.png" width="55" alt="img 6"></a></li>
+								<li><a href="#" onclick="document.getElementById('clear').click();"><img src="images/7tmb.png" width="55" alt="img 7"></a></li> 
+							</ul>
+							<a id="clear" href='#canvas' data-clear='true'><button>Start Over</button></a> 
+						</div>
+					</div>
+				</div>    			
+			</div> <!-- end img_layer_area -->			
+		</div> <!-- end canv_area -->
+	</div> <!-- end working_area -->
+</body>
+</html>

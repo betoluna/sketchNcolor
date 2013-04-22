@@ -1,0 +1,171 @@
+/* 
+ 	@author Beto luna. 3/19/13
+	Coloring team Beto Luna, Jason Hintlian.
+	CS401 Spring 2013.
+	This file partially includes customized portions of original css file by Nathan Searles. http://nathansearles.com
+	Slides is licensed under the "Apache license":http://www.apache.org/licenses/LICENSE-2.0 
+ */
+
+@CHARSET "US-ASCII";
+
+body {
+	width:1174px;
+	margin: 0 auto;
+	/* border:1px solid; */
+}
+
+#content {
+	overflow:auto; 
+}
+
+#slideshow {
+	/* background-color: #efefef; */
+	width:750px;
+	height:790px;
+	float:left;
+	margin:5px;
+	/* border:1px solid; */ 
+}
+
+#legend {
+	/* background-color: #efefef; */
+	width:300px; 
+	height:790px;
+	float:left;
+	margin:5px;
+	/* border:1px solid; */  
+	text-align:center;
+}
+
+#footer {}
+
+.tocolor {
+	position:absolute;
+	text-align:center;
+	margin-top:-120px;
+	margin-left:68px; 	   
+}
+
+#intro {
+	width:150px;
+	font-size:130%;
+	font-style:italic;
+	font-family:Georgia, Times, serif;
+	padding:40px;
+	margin:150px auto;
+}
+
+
+#container {
+	width:740px;
+	/* padding:10px; */
+	/* margin:0 auto; */
+	position:relative;
+	z-index:0;
+	clear:left; 
+	/* border:1px solid green; */
+}
+
+#example {
+	width:745px;
+	height:350px; 
+	position:relative;
+	/* border:1px solid blue; */
+}
+
+#frame {
+	position:absolute;
+	z-index:0;
+	width:739px;
+	height:500px;/*341px;*/
+	top:-3px;
+	left:-80px;
+	display:none; 
+}
+
+/*
+	Slideshow
+*/
+
+#slides {
+	position:absolute;
+	top:15px;
+	left:4px; 
+	z-index:100;
+}
+
+
+.slides_container {
+	width:740px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+*/
+.slides_container a {
+	width:740px;
+	height:740px;
+	display:block; 
+	/* border:1px solid red; */
+}
+
+.slides_container a img {
+	display:block;
+}
+
+/*
+	Next/prev buttons
+*/
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:180px;/* 107px; */
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:585px;
+	display:none; 
+}
+
+#slides .prev {
+	left:-39px;
+	display:none; 
+}
+
+/*
+	Pagination
+*/
+
+.pagination {
+	margin:26px auto 0;
+	width:100px;
+	display:none;
+}
+
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(../images/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}

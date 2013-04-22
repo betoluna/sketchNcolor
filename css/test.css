@@ -1,0 +1,11 @@
+@CHARSET "US-ASCII";
+
+.colorpicker {
+	float: left;
+	margin: 1em;
+}
+
+/* form { // add an id to <form> element
+	margin: 2em 1em 0 1;
+	text-align: center;
+} */

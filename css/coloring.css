@@ -1,0 +1,217 @@
+/* 
+ 	@author Beto luna. 3/19/13
+	Coloring team Beto Luna, Jason Hintlian.
+	CS401 Spring 2013.
+	This file partially includes customized portions of original css file by Nathan Searles. http://nathansearles.com
+	Slides is licensed under the "Apache license":http://www.apache.org/licenses/LICENSE-2.0
+ */
+
+@CHARSET "US-ASCII";
+/*
+	referred to by snc.html
+	for use in ipad
+*/	
+body {
+	width:1220px;
+	height:800px;
+	margin: 0 auto;
+	/* border:1px solid; */  
+}
+
+#colors_tools {
+	float:left;
+	width:160px;
+	height:780px;
+	/* border: 1px solid red; */
+	border-radius:25px; 
+	margin:5px;
+}
+
+#colors { 
+	width:136px;
+	height:392px;
+	margin:20px auto;
+	/* background-color:#dddddd; */
+	/* border:1px solid; */
+	border-radius:5px; 
+}
+
+.colorbutton {
+	width:60px;
+	height:60px;
+	border:0px solid black; 
+	border-radius:5px;
+	display:block;
+}
+
+.colorbutton:hover {
+	position:relative;
+	top:3px;
+}
+
+.colorbutton:active {
+	box-shadow:60px 60px black inset; 
+}
+
+#wheel {
+	width:130px;
+	height:20px;
+	margin:20px auto;
+	border:1px solid silver; 
+	border-radius:5px;
+}
+
+#tools_sizes {
+	width:140px;
+	height:200px;
+	margin:20px auto;
+	/* border:1px solid; */
+}
+
+.t_s td {
+	background-color:#dddddd;
+	/* border:none; */
+	width:50px;
+	height:50px;
+	padding:5px; 
+	text-align:center;
+	border-radius:5px;
+}
+
+#working_area {
+	float:left; 
+	width:1020px;
+	height:780px;
+	/* border:1px solid cyan; */
+	margin:5px;
+}
+
+#canv_area {
+	position:relative;
+	width:920px;
+	height:770px;
+	/* margin:5px; */
+	/* border:1px solid yellow; */ 
+	border-radius:25px;	
+}
+
+#canvas { 
+	position:absolute; 	
+	/* margin:5px; */
+	/* border:1px dotted; */ 
+	z-index:1;
+}
+
+/* not currently used */
+#img_layer_canvas { 
+	position:absolute; 
+	pointer-events:none; 
+	background-color:transparent;
+	margin:5px auto;
+	border:1px solid brown; 
+	z-index:2;
+}  
+
+/* not currently used  */
+#outline { 
+	position:absolute; 
+	pointer-events:none; 
+	background-color:transparent;
+	margin:5px auto;
+	/* border:1px solid; */
+	z-index:2;	
+}
+
+#img_layer_area {
+	width:1020px;
+	height:775px;
+	position:absolute; 
+	pointer-events:none; 
+	background-color:transparent;
+	/* margin:5px auto; */
+	z-index:2;		
+	/* border:1px solid green; */ 
+	border-radius:25px;
+}
+
+
+#statues_example {
+	width:1020px;/* adjust start over button */
+	height:282px;
+	position:relative; 
+	/* border:1px solid red; */ 
+}
+
+/* Slideshow */
+#statues {
+	margin-left:80px; /* adjust to center image */	
+}
+
+/*
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#statues .slides_container {
+	width:832px; /* adjust to move image picker */  
+	overflow:hidden;
+	float:left; 
+	position:relative; 
+	/* border:1px solid blue; */ 
+	display:none;
+}
+
+/*
+	Each slide
+	Set the width of the slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+.slides_container a {
+	height:760px;
+	display:block;   
+}
+
+/* Pagination */
+#statues .pagination {
+	pointer-events:auto;
+	background:#dfdfdf; 
+	width:65px;
+	height:455px; 
+	padding:5px 5px;
+	float:left; 
+	margin-left:30px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+}
+
+#statues .pagination li {
+	float:left;  
+	margin:2px 4px;
+	list-style:none;
+}
+
+#clear {
+	pointer-events:auto;
+	/* margin-left:50px; */
+	float:right; 
+}
+
+#statues .pagination li a {
+	display:block;
+	width:55px;
+	height:55px;
+	margin:1px;
+	float:left; 
+	/* background:#f9f9f9; */ 
+}
+
+#statues .pagination li.current a {
+	border:1px solid #7f7f7f;
+	margin:0;
+}
+
+/* a:hover,a:active {
+	color:#599100;
+	text-decoration:underline;
+}   */

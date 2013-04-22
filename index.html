@@ -1,0 +1,59 @@
+<!-- @author Beto luna. 3/19/13
+	Coloring team Beto Luna, Jason Hintlian.
+	CS401 Spring 2013.
+	Using sketch.js and slides.min.jquery plugins. Please see
+	copyright notices in appropriate files -->
+	
+<!DOCTYPE html>
+<html>	
+<head>
+<meta charset="US-ASCII">
+<title>Intro to Coloring App</title>
+<meta name="viewport" content="user-scalable=no;"> 
+<link rel="stylesheet" href="css/intro_page.css">
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/slides.min.jquery.js"></script>
+<script>
+	$(function() {
+		$('#slides').slides({
+			preload : true,
+			play : 5000,
+			pause : 2500
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="content">
+		<div id="slideshow">
+			<div id="container">
+				<div id="example">
+					<div id="slides">
+						<div class="slides_container">
+							<a><img src="images/1b.png" width="735" height="735" alt="Slide 1"></a> 
+							<a><img src="images/2b.png" width="735" height="735" alt="Slide 2"></a> 
+							<a><img	src="images/3b.png" width="735" height="735" alt="Slide 3"></a>
+							<a><img src="images/4b.png" width="735" height="735" alt="Slide 4"></a> 
+							<a><img src="images/5b.png" width="735"	height="735" alt="Slide 5"></a> 
+							<a><img	src="images/6b.png" width="735" height="735" alt="Slide 6"></a>
+							<a><img src="images/7b.png" width="735" height="735" alt="Slide 7"></a>
+						</div>
+						<!-- <a href="#" class="prev"><img src="images/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a> 
+						<a href="#"	class="next"><img src="images/arrow-next.png" width="24" height="43" alt="Arrow Next"></a> -->
+					</div>
+					<!-- <img id="frame" src="images/example-frame.png" width="739" height="500" alt="Example Frame"> -->
+				</div>
+			</div>		
+		</div> <!-- end id slideshow -->
+		<div id="legend">
+			<p id="intro">These sculptures are white
+			but, back in the day they
+			used to have colors.
+			Click on the palette
+			to help us color these.</p>
+			<a class="tocolor" href="snc.html"><img src="images/palette.jpg"></a>		
+		</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>
